@@ -1,0 +1,40 @@
+name: 教材の不具合報告
+description: 本書教材の再現可能な不具合を報告する
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        公開できる再現情報だけを記載してください。APIキー、顧客データ、社内コードは貼り付けないでください。個別導入サポートは対象外です。
+  - type: input
+    id: version
+    attributes:
+      label: 教材バージョン
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 再現手順と実行したコマンド
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待した結果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の結果（公開可能なログのみ）
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS・Pythonバージョン
+      placeholder: "Linux / Python 3.13.5"
+    validations:
+      required: false

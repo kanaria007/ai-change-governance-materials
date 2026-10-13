@@ -1,0 +1,40 @@
+name: Companion bug report
+description: Report a reproducible defect in the book's companion exercises
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share only information that you can make public. Do not include API keys, customer data, or proprietary source code. Individual integration support is not provided.
+  - type: input
+    id: version
+    attributes:
+      label: Companion version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce and commands run
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior (public logs only)
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and Python version
+      placeholder: "Linux / Python 3.13.5"
+    validations:
+      required: false

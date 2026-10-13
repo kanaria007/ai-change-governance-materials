@@ -1,0 +1,161 @@
+{
+  "schema": "change-control-lab-results/v1",
+  "run_at_utc": "2026-10-13T01:31:55.021914+00:00",
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "source_hashes": {
+    "change_control.py": "sha256:e2276f447d3a59373aa1557ba4cfe9bad02946bfa0c7ced969cea04becf26c82",
+    "coverage_control.py": "sha256:8792fa2577e2254c4af50dc57cbc9eaafe58094c8c5b0a88c6b0e5416673bd43",
+    "coverage_scenarios.py": "sha256:6e47bde8fd09a085e60b5c4a69323c1c7f10cb09e9b306f3b6bac271288f5728",
+    "route_discovery.py": "sha256:3dfbc8f1bb47436bed8493cb68bc1ffbbd10f8f12f71dadbdd2fadf6f41cacaa",
+    "run_expansion.py": "sha256:f850a58e6005b40dd7c6e027cf1c73befa41150abb5a39d7bb8b9703512404ad",
+    "run_experiments.py": "sha256:8a65572607fc230ebfdb36bc14695040f09c9257a144dc1b65c58923b6a2a0ce",
+    "runtime_scenarios.py": "sha256:cdf38b2d8bc87180ea9e34be7d16bb9956123368c239f7eefd995d8fc22b1b59",
+    "scenarios.py": "sha256:5d75c2fac3e502e62e2a9554d2128bfb60af3f6b9ccd7226b253ccfd6043b2cd",
+    "test_change_control.py": "sha256:2b568926fa6ff239b61d9b5c52066fcd00963f2177457919a8fefd99bd0030db",
+    "test_coverage.py": "sha256:e7756e2a4f85dd7c35d1ecdbae02bf5537586ad7313060ec6e27688ba75eb0f8",
+    "test_discovery.py": "sha256:12c2ab1bf1b3788f55682cf422bd670e5e22bcda7c76125b862d362e12702dfe",
+    "test_runtime_boundary.py": "sha256:6621f96e2f88518b12998de8011e7bd69094397118a264bc2d40c3813d1e3d26"
+  },
+  "scope": "author-designed local deterministic teaching scenarios",
+  "actual_ai_calls": 0,
+  "actual_git_merges": 0,
+  "actual_remote_deployments": 0,
+  "scenario_results": {
+    "A_guard_removed": {
+      "smoke_pass": true,
+      "before_revalidation": "HOLD",
+      "after_revalidation": "DENY",
+      "claim_states": {
+        "tenant-isolation": "CONTRADICTED",
+        "false-preservation": "CURRENT",
+        "storage-readable": "CURRENT"
+      }
+    },
+    "B_false_lost": {
+      "smoke_pass": true,
+      "before_revalidation": "HOLD",
+      "after_revalidation": "DENY",
+      "claim_states": {
+        "tenant-isolation": "CURRENT",
+        "false-preservation": "CONTRADICTED",
+        "storage-readable": "CURRENT"
+      }
+    },
+    "C_safe_change_old_evidence": {
+      "before_revalidation": "HOLD",
+      "after_revalidation": "ALLOW"
+    },
+    "D_revoked_after_admission": {
+      "status": "deny",
+      "reasons": [
+        "authority_revoked"
+      ],
+      "effect_executed": false
+    },
+    "E_undeclared_batch_route": {
+      "old_policy": "ALLOW",
+      "explicitly_extended_policy": "DENY",
+      "automatic_discovery": false
+    },
+    "F_code_only_rollback": {
+      "migrated": "ALLOW",
+      "after_code_revert_before_revalidation": "HOLD",
+      "after_revalidation": "DENY"
+    }
+  },
+  "revalidation_comparison": {
+    "full_recheck": {
+      "rows": [
+        {
+          "step": "initial",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        },
+        {
+          "step": "docs_only",
+          "before": "ALLOW",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        },
+        {
+          "step": "wire_comment",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        },
+        {
+          "step": "wire_fault",
+          "before": "HOLD",
+          "after": "DENY",
+          "checker_invocations": 3
+        },
+        {
+          "step": "wire_restored",
+          "before": "ALLOW",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        },
+        {
+          "step": "app_comment",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        }
+      ],
+      "checker_invocations": 18
+    },
+    "dependency_reuse": {
+      "rows": [
+        {
+          "step": "initial",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 3
+        },
+        {
+          "step": "docs_only",
+          "before": "ALLOW",
+          "after": "ALLOW",
+          "checker_invocations": 0
+        },
+        {
+          "step": "wire_comment",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 1
+        },
+        {
+          "step": "wire_fault",
+          "before": "HOLD",
+          "after": "DENY",
+          "checker_invocations": 1
+        },
+        {
+          "step": "wire_restored",
+          "before": "ALLOW",
+          "after": "ALLOW",
+          "checker_invocations": 0
+        },
+        {
+          "step": "app_comment",
+          "before": "HOLD",
+          "after": "ALLOW",
+          "checker_invocations": 2
+        }
+      ],
+      "checker_invocations": 7
+    }
+  },
+  "limitations": [
+    "No independent holdout data or production traffic",
+    "Fixtures, expected labels, dependency map and evaluator share authorship",
+    "No model quality, real PR acceptance or workflow ROI measurement",
+    "An undeclared batch route is intentionally missed by the original claim set",
+    "Locks protect only a local simulated deployment pointer",
+    "No durable deduplication, signature validation or distributed authorization"
+  ]
+}

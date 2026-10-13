@@ -1,0 +1,2257 @@
+{
+  "schema": "change-control-expansion-results/v2",
+  "run_at_utc": "2026-10-13T01:31:55.995657+00:00",
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "source_hashes": {
+    "change_control.py": "sha256:e2276f447d3a59373aa1557ba4cfe9bad02946bfa0c7ced969cea04becf26c82",
+    "coverage_control.py": "sha256:8792fa2577e2254c4af50dc57cbc9eaafe58094c8c5b0a88c6b0e5416673bd43",
+    "coverage_scenarios.py": "sha256:6e47bde8fd09a085e60b5c4a69323c1c7f10cb09e9b306f3b6bac271288f5728",
+    "discovery_fixtures/application/t1.py": "sha256:d4178c7ea68f84de93dd0352936d768b07fd632c161f2ce42b5e7d0a3b1e8e54",
+    "discovery_fixtures/application/t2.py": "sha256:ebe87b4da8342e583fba43ae47693e5e28f565a9d6f251b599f093643e2f2bff",
+    "discovery_fixtures/application/t3.py": "sha256:b83b0cf8f3bdb755bcfc899fa80bf9b371af649e1024b2cd3c50294958dbe8a4",
+    "discovery_fixtures/development/d1.py": "sha256:c5b05257dbee85157e19e32aaf7fdb3190d055ef43b6090bb7698179ee3a3a86",
+    "discovery_fixtures/development/d2.py": "sha256:8d4b9ca346993e7208b0954bfc60c2f94638597429ad2b6679a4aea07899711e",
+    "discovery_fixtures/development/d3.py": "sha256:71a434bcd63918ae6b4fe5cd1596a8e45c1d4cd32a65aed2191dfff2eea4bc64",
+    "discovery_fixtures/limits/c1.py": "sha256:28d05179429916124fb1faf5e18af6db1ded5a2024ddcc6237b3270525e3be51",
+    "discovery_fixtures/limits/c2.py": "sha256:2ad6a198e035b22e286f442fb6307d82c6ba6626d546bef5257b29724b7874f1",
+    "discovery_fixtures/limits/c3.py": "sha256:72389b6a76f3da82df101025aaad6986348ccee8b9db67befe1a391f8191caee",
+    "route_discovery.py": "sha256:3dfbc8f1bb47436bed8493cb68bc1ffbbd10f8f12f71dadbdd2fadf6f41cacaa",
+    "run_expansion.py": "sha256:f850a58e6005b40dd7c6e027cf1c73befa41150abb5a39d7bb8b9703512404ad",
+    "run_experiments.py": "sha256:8a65572607fc230ebfdb36bc14695040f09c9257a144dc1b65c58923b6a2a0ce",
+    "runtime_scenarios.py": "sha256:cdf38b2d8bc87180ea9e34be7d16bb9956123368c239f7eefd995d8fc22b1b59",
+    "sample_repository/document_routes.py": "sha256:d392d3a4b82c81c062cf82887a9da96d21ea864e303a3dad47f2f755ecbf5f9c",
+    "scenarios.py": "sha256:5d75c2fac3e502e62e2a9554d2128bfb60af3f6b9ccd7226b253ccfd6043b2cd",
+    "test_change_control.py": "sha256:2b568926fa6ff239b61d9b5c52066fcd00963f2177457919a8fefd99bd0030db",
+    "test_coverage.py": "sha256:e7756e2a4f85dd7c35d1ecdbae02bf5537586ad7313060ec6e27688ba75eb0f8",
+    "test_discovery.py": "sha256:12c2ab1bf1b3788f55682cf422bd670e5e22bcda7c76125b862d362e12702dfe",
+    "test_runtime_boundary.py": "sha256:6621f96e2f88518b12998de8011e7bd69094397118a264bc2d40c3813d1e3d26"
+  },
+  "plan_ref": "sha256:db619a40050ae0d6f888c5cc258cc5dc7594e60643513bee879703949cec8c05",
+  "actual_ai_calls": 0,
+  "actual_git_merges": 0,
+  "actual_remote_deployments": 0,
+  "lifecycle": {
+    "rows": [
+      {
+        "step": "E1_declared_batch_without_check",
+        "verdict": "HOLD",
+        "reasons": [
+          "coverage_missing:batch:tenant"
+        ],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 4,
+        "route_epoch": 1,
+        "policy_revision": 1,
+        "checker_invocations_total": 3,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT"
+        },
+        "legacy_verdict": "ALLOW"
+      },
+      {
+        "step": "E1_api_only_disabled_batch",
+        "verdict": "ALLOW",
+        "reasons": [],
+        "requested_routes": [
+          "api"
+        ],
+        "required_pairs": 3,
+        "mapped_pairs": 3,
+        "route_epoch": 1,
+        "policy_revision": 1,
+        "checker_invocations_total": 3,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT"
+        }
+      },
+      {
+        "step": "E1_mapping_added_evidence_missing",
+        "verdict": "HOLD",
+        "reasons": [
+          "batch-isolation:unknown"
+        ],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 2,
+        "policy_revision": 2,
+        "checker_invocations_total": 3,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "batch-isolation": "UNKNOWN"
+        }
+      },
+      {
+        "step": "E1_batch_counterexample",
+        "verdict": "DENY",
+        "reasons": [
+          "batch-isolation:counterexample"
+        ],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 2,
+        "policy_revision": 2,
+        "checker_invocations_total": 4,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "batch-isolation": "CONTRADICTED"
+        }
+      },
+      {
+        "step": "E1_code_fixed_evidence_stale",
+        "verdict": "HOLD",
+        "reasons": [
+          "batch-isolation:stale"
+        ],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 2,
+        "policy_revision": 2,
+        "checker_invocations_total": 4,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "batch-isolation": "STALE"
+        }
+      },
+      {
+        "step": "E1_revalidated_full_scope",
+        "verdict": "ALLOW",
+        "reasons": [],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 2,
+        "policy_revision": 2,
+        "checker_invocations_total": 5,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "batch-isolation": "CURRENT"
+        }
+      },
+      {
+        "step": "E1_full_activation_applied",
+        "verdict": "ALLOW",
+        "reasons": [],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 3,
+        "policy_revision": 2,
+        "checker_invocations_total": 5,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "tenant-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "batch-isolation": "CURRENT"
+        }
+      },
+      {
+        "step": "E2_inventory_missing_scheduled_delivery",
+        "verdict": "ALLOW",
+        "reasons": [],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 3,
+        "policy_revision": 3,
+        "checker_invocations_total": 7,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "repo-api-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "repo-batch-isolation": "CURRENT"
+        }
+      },
+      {
+        "step": "E2_discovery_requires_scope_review",
+        "verdict": "HOLD",
+        "reasons": [
+          "discovery_unresolved:scheduled_delivery"
+        ],
+        "requested_routes": [
+          "api",
+          "batch"
+        ],
+        "required_pairs": 5,
+        "mapped_pairs": 5,
+        "route_epoch": 3,
+        "policy_revision": 4,
+        "checker_invocations_total": 7,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "repo-api-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "repo-batch-isolation": "CURRENT"
+        },
+        "discovered": [
+          "scheduled_delivery"
+        ]
+      },
+      {
+        "step": "E2_route_declared_evidence_missing",
+        "verdict": "HOLD",
+        "reasons": [
+          "repo-delivery-isolation:unknown"
+        ],
+        "requested_routes": [
+          "api",
+          "batch",
+          "delivery"
+        ],
+        "required_pairs": 6,
+        "mapped_pairs": 6,
+        "route_epoch": 4,
+        "policy_revision": 5,
+        "checker_invocations_total": 7,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "repo-api-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "repo-batch-isolation": "CURRENT",
+          "repo-delivery-isolation": "UNKNOWN"
+        }
+      },
+      {
+        "step": "E2_delivery_counterexample",
+        "verdict": "DENY",
+        "reasons": [
+          "repo-delivery-isolation:counterexample"
+        ],
+        "requested_routes": [
+          "api",
+          "batch",
+          "delivery"
+        ],
+        "required_pairs": 6,
+        "mapped_pairs": 6,
+        "route_epoch": 4,
+        "policy_revision": 5,
+        "checker_invocations_total": 8,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "repo-api-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "repo-batch-isolation": "CURRENT",
+          "repo-delivery-isolation": "CONTRADICTED"
+        }
+      },
+      {
+        "step": "E2_fixed_all_declared_routes",
+        "verdict": "ALLOW",
+        "reasons": [],
+        "requested_routes": [
+          "api",
+          "batch",
+          "delivery"
+        ],
+        "required_pairs": 6,
+        "mapped_pairs": 6,
+        "route_epoch": 4,
+        "policy_revision": 5,
+        "checker_invocations_total": 11,
+        "claim_states": {
+          "storage-readable": "CURRENT",
+          "repo-api-isolation": "CURRENT",
+          "false-preservation": "CURRENT",
+          "repo-batch-isolation": "CURRENT",
+          "repo-delivery-isolation": "CURRENT"
+        }
+      }
+    ],
+    "limited_activation": "succeeded",
+    "full_activation": "succeeded",
+    "local_boundary_probe": {
+      "api_allowed": true,
+      "batch_allowed": false
+    },
+    "name_candidates": [
+      "batch_export",
+      "export_csv",
+      "export_help"
+    ],
+    "effect_candidates": [
+      "batch_export",
+      "export_csv",
+      "scheduled_delivery"
+    ],
+    "inventory_complete_in_reality": false,
+    "note": "ALLOW remains bounded by the trusted declared inventory; scanner findings require reviewed reclassification"
+  },
+  "coverage_comparison": [
+    {
+      "case": "missing_mapping_full",
+      "expected_under_declared_scope_policy": "HOLD",
+      "registered_claims_only": "ALLOW",
+      "scoped_coverage": "HOLD",
+      "reasons": [
+        "coverage_missing:batch:tenant"
+      ],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "missing_mapping_disabled_batch_api_only",
+      "expected_under_declared_scope_policy": "ALLOW",
+      "registered_claims_only": "ALLOW",
+      "scoped_coverage": "ALLOW",
+      "reasons": [],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "disabled_state_unobserved",
+      "expected_under_declared_scope_policy": "HOLD",
+      "registered_claims_only": "ALLOW",
+      "scoped_coverage": "HOLD",
+      "reasons": [
+        "route_observation_incomplete"
+      ],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "api_check_mislabeled_as_batch",
+      "expected_under_declared_scope_policy": "HOLD",
+      "registered_claims_only": "ALLOW",
+      "scoped_coverage": "HOLD",
+      "reasons": [
+        "evaluator_scope_mismatch:batch:tenant"
+      ],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "all_requirements_pass",
+      "expected_under_declared_scope_policy": "ALLOW",
+      "registered_claims_only": "ALLOW",
+      "scoped_coverage": "ALLOW",
+      "reasons": [],
+      "same_evidence_records": 4
+    },
+    {
+      "case": "batch_counterexample_full",
+      "expected_under_declared_scope_policy": "DENY",
+      "registered_claims_only": "DENY",
+      "scoped_coverage": "DENY",
+      "reasons": [
+        "batch-isolation:counterexample"
+      ],
+      "same_evidence_records": 4
+    },
+    {
+      "case": "batch_counterexample_disabled_api_only",
+      "expected_under_declared_scope_policy": "ALLOW",
+      "registered_claims_only": "DENY",
+      "scoped_coverage": "ALLOW",
+      "reasons": [],
+      "same_evidence_records": 4
+    },
+    {
+      "case": "authority_revoked",
+      "expected_under_declared_scope_policy": "DENY",
+      "registered_claims_only": "DENY",
+      "scoped_coverage": "DENY",
+      "reasons": [
+        "authority_revoked"
+      ],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "relevant_evidence_stale",
+      "expected_under_declared_scope_policy": "HOLD",
+      "registered_claims_only": "HOLD",
+      "scoped_coverage": "HOLD",
+      "reasons": [
+        "storage-readable:stale",
+        "tenant-isolation:stale"
+      ],
+      "same_evidence_records": 3
+    },
+    {
+      "case": "outside_environment_authority",
+      "expected_under_declared_scope_policy": "DENY",
+      "registered_claims_only": "DENY",
+      "scoped_coverage": "DENY",
+      "reasons": [
+        "operation_outside_authority",
+        "route_observation_scope_mismatch"
+      ],
+      "same_evidence_records": 3
+    }
+  ],
+  "development": {
+    "details": {
+      "name": [
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "export_csv",
+            "export_help"
+          ],
+          "missed": [
+            "nightly"
+          ],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 316,
+          "ast_nodes": 58,
+          "edges_examined": 4,
+          "fixture": "d1.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_layout",
+            "download_current"
+          ],
+          "missed": [
+            "run_job"
+          ],
+          "unnecessary": [
+            "csv_layout"
+          ],
+          "source_bytes": 329,
+          "ast_nodes": 61,
+          "edges_examined": 4,
+          "fixture": "d2.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_description",
+            "export_document"
+          ],
+          "missed": [
+            "deliver"
+          ],
+          "unnecessary": [
+            "csv_description"
+          ],
+          "source_bytes": 373,
+          "ast_nodes": 66,
+          "edges_examined": 5,
+          "fixture": "d3.py"
+        }
+      ],
+      "name_callers": [
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "export_csv",
+            "export_help"
+          ],
+          "missed": [
+            "nightly"
+          ],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 316,
+          "ast_nodes": 58,
+          "edges_examined": 8,
+          "fixture": "d1.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_layout",
+            "download_current",
+            "run_job"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_layout"
+          ],
+          "source_bytes": 329,
+          "ast_nodes": 61,
+          "edges_examined": 9,
+          "fixture": "d2.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_description",
+            "export_document"
+          ],
+          "missed": [
+            "deliver"
+          ],
+          "unnecessary": [
+            "csv_description"
+          ],
+          "source_bytes": 373,
+          "ast_nodes": 66,
+          "edges_examined": 10,
+          "fixture": "d3.py"
+        }
+      ],
+      "effect": [
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "export_csv",
+            "nightly"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "source_bytes": 316,
+          "ast_nodes": 58,
+          "edges_examined": 11,
+          "fixture": "d1.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_current",
+            "run_job"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "source_bytes": 329,
+          "ast_nodes": 61,
+          "edges_examined": 11,
+          "fixture": "d2.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "deliver",
+            "export_document",
+            "preview"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "preview"
+          ],
+          "source_bytes": 373,
+          "ast_nodes": 66,
+          "edges_examined": 14,
+          "fixture": "d3.py"
+        }
+      ],
+      "union": [
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "export_csv",
+            "export_help",
+            "nightly"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 316,
+          "ast_nodes": 58,
+          "edges_examined": 15,
+          "fixture": "d1.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_layout",
+            "download_current",
+            "run_job"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_layout"
+          ],
+          "source_bytes": 329,
+          "ast_nodes": 61,
+          "edges_examined": 16,
+          "fixture": "d2.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_description",
+            "deliver",
+            "export_document",
+            "preview"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_description",
+            "preview"
+          ],
+          "source_bytes": 373,
+          "ast_nodes": 66,
+          "edges_examined": 19,
+          "fixture": "d3.py"
+        }
+      ],
+      "all_entries": [
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "export_csv",
+            "export_help",
+            "health",
+            "nightly"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_help",
+            "health"
+          ],
+          "source_bytes": 316,
+          "ast_nodes": 58,
+          "edges_examined": 4,
+          "fixture": "d1.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_layout",
+            "download_current",
+            "health",
+            "run_job"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_layout",
+            "health"
+          ],
+          "source_bytes": 329,
+          "ast_nodes": 61,
+          "edges_examined": 4,
+          "fixture": "d2.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_description",
+            "deliver",
+            "export_document",
+            "preview"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_description",
+            "preview"
+          ],
+          "source_bytes": 373,
+          "ast_nodes": 66,
+          "edges_examined": 5,
+          "fixture": "d3.py"
+        }
+      ]
+    },
+    "totals": {
+      "name": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 3,
+        "tn": 3,
+        "candidate_count": 6,
+        "unresolved_count": 0,
+        "source_bytes": 1018,
+        "ast_nodes": 185,
+        "edges_examined": 13
+      },
+      "name_callers": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 2,
+        "tn": 3,
+        "candidate_count": 7,
+        "unresolved_count": 0,
+        "source_bytes": 1018,
+        "ast_nodes": 185,
+        "edges_examined": 27
+      },
+      "effect": {
+        "tp": 6,
+        "fp": 1,
+        "fn": 0,
+        "tn": 5,
+        "candidate_count": 7,
+        "unresolved_count": 0,
+        "source_bytes": 1018,
+        "ast_nodes": 185,
+        "edges_examined": 36
+      },
+      "union": {
+        "tp": 6,
+        "fp": 4,
+        "fn": 0,
+        "tn": 2,
+        "candidate_count": 10,
+        "unresolved_count": 0,
+        "source_bytes": 1018,
+        "ast_nodes": 185,
+        "edges_examined": 50
+      },
+      "all_entries": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 0,
+        "tn": 0,
+        "candidate_count": 12,
+        "unresolved_count": 0,
+        "source_bytes": 1018,
+        "ast_nodes": 185,
+        "edges_examined": 13
+      }
+    },
+    "observed_gold": {
+      "d1.py": {
+        "entries": [
+          "export_csv",
+          "export_help",
+          "health",
+          "nightly"
+        ],
+        "positive": [
+          "export_csv",
+          "nightly"
+        ],
+        "faults": [
+          "nightly"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "export_csv": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "export_help": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "health": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "nightly": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          }
+        }
+      },
+      "d2.py": {
+        "entries": [
+          "csv_layout",
+          "download_current",
+          "health",
+          "run_job"
+        ],
+        "positive": [
+          "download_current",
+          "run_job"
+        ],
+        "faults": [
+          "run_job"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "csv_layout": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "download_current": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "health": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "run_job": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          }
+        }
+      },
+      "d3.py": {
+        "entries": [
+          "csv_description",
+          "deliver",
+          "export_document",
+          "preview"
+        ],
+        "positive": [
+          "deliver",
+          "export_document"
+        ],
+        "faults": [
+          "deliver"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "csv_description": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "deliver": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          },
+          "export_document": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "preview": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      }
+    }
+  },
+  "frozen_choice": {
+    "strategy": "effect",
+    "selected_from": "development only",
+    "plan_ref": "sha256:db619a40050ae0d6f888c5cc258cc5dc7594e60643513bee879703949cec8c05",
+    "status": "scoped_candidate_not_production_authorization",
+    "scope": "document-output investigation on module-level direct-call Python fixtures; candidates require semantic review",
+    "unresolved_rule": "unresolved call paths prevent automatic investigation closure; do not count uncertainty as route discovery",
+    "retune_on_application": false
+  },
+  "application": {
+    "details": {
+      "name": [
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_help",
+            "export_csv"
+          ],
+          "missed": [
+            "customer_digest"
+          ],
+          "unnecessary": [
+            "download_help"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 75,
+          "edges_examined": 6,
+          "fixture": "t1.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_view",
+            "export_description"
+          ],
+          "missed": [
+            "scheduled_dispatch"
+          ],
+          "unnecessary": [
+            "export_description"
+          ],
+          "source_bytes": 368,
+          "ast_nodes": 66,
+          "edges_examined": 5,
+          "fixture": "t2.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_one",
+            "export_usage"
+          ],
+          "missed": [
+            "weekly_package"
+          ],
+          "unnecessary": [
+            "export_usage"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 65,
+          "edges_examined": 5,
+          "fixture": "t3.py"
+        }
+      ],
+      "name_callers": [
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_help",
+            "export_csv"
+          ],
+          "missed": [
+            "customer_digest"
+          ],
+          "unnecessary": [
+            "download_help"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 75,
+          "edges_examined": 12,
+          "fixture": "t1.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_view",
+            "export_description",
+            "scheduled_dispatch"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_description"
+          ],
+          "source_bytes": 368,
+          "ast_nodes": 66,
+          "edges_examined": 11,
+          "fixture": "t2.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_one",
+            "export_usage"
+          ],
+          "missed": [
+            "weekly_package"
+          ],
+          "unnecessary": [
+            "export_usage"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 65,
+          "edges_examined": 10,
+          "fixture": "t3.py"
+        }
+      ],
+      "effect": [
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "customer_digest",
+            "export_csv"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "source_bytes": 383,
+          "ast_nodes": 75,
+          "edges_examined": 16,
+          "fixture": "t1.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "candidate_count": 2,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_view",
+            "scheduled_dispatch"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "source_bytes": 368,
+          "ast_nodes": 66,
+          "edges_examined": 13,
+          "fixture": "t2.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_one",
+            "public_sample",
+            "weekly_package"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "public_sample"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 65,
+          "edges_examined": 14,
+          "fixture": "t3.py"
+        }
+      ],
+      "union": [
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "customer_digest",
+            "download_help",
+            "export_csv"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "download_help"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 75,
+          "edges_examined": 22,
+          "fixture": "t1.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "candidate_count": 3,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_view",
+            "export_description",
+            "scheduled_dispatch"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_description"
+          ],
+          "source_bytes": 368,
+          "ast_nodes": 66,
+          "edges_examined": 19,
+          "fixture": "t2.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_one",
+            "export_usage",
+            "public_sample",
+            "weekly_package"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_usage",
+            "public_sample"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 65,
+          "edges_examined": 19,
+          "fixture": "t3.py"
+        }
+      ],
+      "all_entries": [
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "customer_digest",
+            "download_help",
+            "export_csv",
+            "status"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "download_help",
+            "status"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 75,
+          "edges_examined": 6,
+          "fixture": "t1.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "csv_view",
+            "export_description",
+            "scheduled_dispatch",
+            "status"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_description",
+            "status"
+          ],
+          "source_bytes": 368,
+          "ast_nodes": 66,
+          "edges_examined": 5,
+          "fixture": "t2.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 0,
+          "unresolved_entries": [],
+          "selected": [
+            "download_one",
+            "export_usage",
+            "public_sample",
+            "weekly_package"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_usage",
+            "public_sample"
+          ],
+          "source_bytes": 383,
+          "ast_nodes": 65,
+          "edges_examined": 5,
+          "fixture": "t3.py"
+        }
+      ]
+    },
+    "totals": {
+      "name": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 3,
+        "tn": 3,
+        "candidate_count": 6,
+        "unresolved_count": 0,
+        "source_bytes": 1134,
+        "ast_nodes": 206,
+        "edges_examined": 16
+      },
+      "name_callers": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 2,
+        "tn": 3,
+        "candidate_count": 7,
+        "unresolved_count": 0,
+        "source_bytes": 1134,
+        "ast_nodes": 206,
+        "edges_examined": 33
+      },
+      "effect": {
+        "tp": 6,
+        "fp": 1,
+        "fn": 0,
+        "tn": 5,
+        "candidate_count": 7,
+        "unresolved_count": 0,
+        "source_bytes": 1134,
+        "ast_nodes": 206,
+        "edges_examined": 43
+      },
+      "union": {
+        "tp": 6,
+        "fp": 4,
+        "fn": 0,
+        "tn": 2,
+        "candidate_count": 10,
+        "unresolved_count": 0,
+        "source_bytes": 1134,
+        "ast_nodes": 206,
+        "edges_examined": 60
+      },
+      "all_entries": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 0,
+        "tn": 0,
+        "candidate_count": 12,
+        "unresolved_count": 0,
+        "source_bytes": 1134,
+        "ast_nodes": 206,
+        "edges_examined": 16
+      }
+    },
+    "observed_gold": {
+      "t1.py": {
+        "entries": [
+          "customer_digest",
+          "download_help",
+          "export_csv",
+          "status"
+        ],
+        "positive": [
+          "customer_digest",
+          "export_csv"
+        ],
+        "faults": [],
+        "input_cases_per_entry": 3,
+        "details": {
+          "customer_digest": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "download_help": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "export_csv": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "status": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      },
+      "t2.py": {
+        "entries": [
+          "csv_view",
+          "export_description",
+          "scheduled_dispatch",
+          "status"
+        ],
+        "positive": [
+          "csv_view",
+          "scheduled_dispatch"
+        ],
+        "faults": [],
+        "input_cases_per_entry": 3,
+        "details": {
+          "csv_view": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "export_description": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "scheduled_dispatch": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "status": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      },
+      "t3.py": {
+        "entries": [
+          "download_one",
+          "export_usage",
+          "public_sample",
+          "weekly_package"
+        ],
+        "positive": [
+          "download_one",
+          "weekly_package"
+        ],
+        "faults": [
+          "weekly_package"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "download_one": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "export_usage": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "public_sample": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "weekly_package": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "limits": {
+    "details": {
+      "name": [
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "scheduled_hook"
+          ],
+          "selected": [
+            "export_csv",
+            "export_help"
+          ],
+          "missed": [
+            "scheduled_hook"
+          ],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 315,
+          "ast_nodes": 58,
+          "edges_examined": 4,
+          "fixture": "c1.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "legacy_writer"
+          ],
+          "selected": [
+            "csv_schema",
+            "download_one"
+          ],
+          "missed": [
+            "legacy_writer"
+          ],
+          "unnecessary": [
+            "csv_schema"
+          ],
+          "source_bytes": 294,
+          "ast_nodes": 51,
+          "edges_examined": 3,
+          "fixture": "c2.py"
+        },
+        {
+          "strategy": "name",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "indirect_job"
+          ],
+          "selected": [
+            "csv_hint",
+            "export_csv"
+          ],
+          "missed": [
+            "indirect_job"
+          ],
+          "unnecessary": [
+            "csv_hint"
+          ],
+          "source_bytes": 327,
+          "ast_nodes": 60,
+          "edges_examined": 4,
+          "fixture": "c3.py"
+        }
+      ],
+      "name_callers": [
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "scheduled_hook"
+          ],
+          "selected": [
+            "export_csv",
+            "export_help"
+          ],
+          "missed": [
+            "scheduled_hook"
+          ],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 315,
+          "ast_nodes": 58,
+          "edges_examined": 8,
+          "fixture": "c1.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "legacy_writer"
+          ],
+          "selected": [
+            "csv_schema",
+            "download_one"
+          ],
+          "missed": [
+            "legacy_writer"
+          ],
+          "unnecessary": [
+            "csv_schema"
+          ],
+          "source_bytes": 294,
+          "ast_nodes": 51,
+          "edges_examined": 6,
+          "fixture": "c2.py"
+        },
+        {
+          "strategy": "name_callers",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "indirect_job"
+          ],
+          "selected": [
+            "csv_hint",
+            "export_csv"
+          ],
+          "missed": [
+            "indirect_job"
+          ],
+          "unnecessary": [
+            "csv_hint"
+          ],
+          "source_bytes": 327,
+          "ast_nodes": 60,
+          "edges_examined": 8,
+          "fixture": "c3.py"
+        }
+      ],
+      "effect": [
+        {
+          "strategy": "effect",
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 2,
+          "candidate_count": 1,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "scheduled_hook"
+          ],
+          "selected": [
+            "export_csv"
+          ],
+          "missed": [
+            "scheduled_hook"
+          ],
+          "unnecessary": [],
+          "source_bytes": 315,
+          "ast_nodes": 58,
+          "edges_examined": 9,
+          "fixture": "c1.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 2,
+          "candidate_count": 1,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "legacy_writer"
+          ],
+          "selected": [
+            "download_one"
+          ],
+          "missed": [
+            "legacy_writer"
+          ],
+          "unnecessary": [],
+          "source_bytes": 294,
+          "ast_nodes": 51,
+          "edges_examined": 7,
+          "fixture": "c2.py"
+        },
+        {
+          "strategy": "effect",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "indirect_job"
+          ],
+          "selected": [
+            "export_csv",
+            "unreachable"
+          ],
+          "missed": [
+            "indirect_job"
+          ],
+          "unnecessary": [
+            "unreachable"
+          ],
+          "source_bytes": 327,
+          "ast_nodes": 60,
+          "edges_examined": 10,
+          "fixture": "c3.py"
+        }
+      ],
+      "union": [
+        {
+          "strategy": "union",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "scheduled_hook"
+          ],
+          "selected": [
+            "export_csv",
+            "export_help"
+          ],
+          "missed": [
+            "scheduled_hook"
+          ],
+          "unnecessary": [
+            "export_help"
+          ],
+          "source_bytes": 315,
+          "ast_nodes": 58,
+          "edges_examined": 13,
+          "fixture": "c1.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 1,
+          "candidate_count": 2,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "legacy_writer"
+          ],
+          "selected": [
+            "csv_schema",
+            "download_one"
+          ],
+          "missed": [
+            "legacy_writer"
+          ],
+          "unnecessary": [
+            "csv_schema"
+          ],
+          "source_bytes": 294,
+          "ast_nodes": 51,
+          "edges_examined": 10,
+          "fixture": "c2.py"
+        },
+        {
+          "strategy": "union",
+          "tp": 1,
+          "fp": 2,
+          "fn": 1,
+          "tn": 0,
+          "candidate_count": 3,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "indirect_job"
+          ],
+          "selected": [
+            "csv_hint",
+            "export_csv",
+            "unreachable"
+          ],
+          "missed": [
+            "indirect_job"
+          ],
+          "unnecessary": [
+            "csv_hint",
+            "unreachable"
+          ],
+          "source_bytes": 327,
+          "ast_nodes": 60,
+          "edges_examined": 14,
+          "fixture": "c3.py"
+        }
+      ],
+      "all_entries": [
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "scheduled_hook"
+          ],
+          "selected": [
+            "export_csv",
+            "export_help",
+            "scheduled_hook",
+            "status"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "export_help",
+            "status"
+          ],
+          "source_bytes": 315,
+          "ast_nodes": 58,
+          "edges_examined": 4,
+          "fixture": "c1.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "legacy_writer"
+          ],
+          "selected": [
+            "csv_schema",
+            "download_one",
+            "legacy_writer",
+            "status"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_schema",
+            "status"
+          ],
+          "source_bytes": 294,
+          "ast_nodes": 51,
+          "edges_examined": 3,
+          "fixture": "c2.py"
+        },
+        {
+          "strategy": "all_entries",
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "candidate_count": 4,
+          "unresolved_count": 1,
+          "unresolved_entries": [
+            "indirect_job"
+          ],
+          "selected": [
+            "csv_hint",
+            "export_csv",
+            "indirect_job",
+            "unreachable"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "csv_hint",
+            "unreachable"
+          ],
+          "source_bytes": 327,
+          "ast_nodes": 60,
+          "edges_examined": 4,
+          "fixture": "c3.py"
+        }
+      ]
+    },
+    "totals": {
+      "name": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 3,
+        "tn": 3,
+        "candidate_count": 6,
+        "unresolved_count": 3,
+        "source_bytes": 936,
+        "ast_nodes": 169,
+        "edges_examined": 11
+      },
+      "name_callers": {
+        "tp": 3,
+        "fp": 3,
+        "fn": 3,
+        "tn": 3,
+        "candidate_count": 6,
+        "unresolved_count": 3,
+        "source_bytes": 936,
+        "ast_nodes": 169,
+        "edges_examined": 22
+      },
+      "effect": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 3,
+        "tn": 5,
+        "candidate_count": 4,
+        "unresolved_count": 3,
+        "source_bytes": 936,
+        "ast_nodes": 169,
+        "edges_examined": 26
+      },
+      "union": {
+        "tp": 3,
+        "fp": 4,
+        "fn": 3,
+        "tn": 2,
+        "candidate_count": 7,
+        "unresolved_count": 3,
+        "source_bytes": 936,
+        "ast_nodes": 169,
+        "edges_examined": 37
+      },
+      "all_entries": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 0,
+        "tn": 0,
+        "candidate_count": 12,
+        "unresolved_count": 3,
+        "source_bytes": 936,
+        "ast_nodes": 169,
+        "edges_examined": 11
+      }
+    },
+    "observed_gold": {
+      "c1.py": {
+        "entries": [
+          "export_csv",
+          "export_help",
+          "scheduled_hook",
+          "status"
+        ],
+        "positive": [
+          "export_csv",
+          "scheduled_hook"
+        ],
+        "faults": [
+          "scheduled_hook"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "export_csv": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "export_help": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "scheduled_hook": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          },
+          "status": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      },
+      "c2.py": {
+        "entries": [
+          "csv_schema",
+          "download_one",
+          "legacy_writer",
+          "status"
+        ],
+        "positive": [
+          "download_one",
+          "legacy_writer"
+        ],
+        "faults": [
+          "legacy_writer"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "csv_schema": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "download_one": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "legacy_writer": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          },
+          "status": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      },
+      "c3.py": {
+        "entries": [
+          "csv_hint",
+          "export_csv",
+          "indirect_job",
+          "unreachable"
+        ],
+        "positive": [
+          "export_csv",
+          "indirect_job"
+        ],
+        "faults": [
+          "indirect_job"
+        ],
+        "input_cases_per_entry": 3,
+        "details": {
+          "csv_hint": {
+            "emits_declared_document": false,
+            "violations": []
+          },
+          "export_csv": {
+            "emits_declared_document": true,
+            "violations": []
+          },
+          "indirect_job": {
+            "emits_declared_document": true,
+            "violations": [
+              {
+                "actor": {
+                  "role": "manager",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-b"
+              },
+              {
+                "actor": {
+                  "role": "viewer",
+                  "tenant": "tenant-a"
+                },
+                "row_tenant": "tenant-a"
+              }
+            ]
+          },
+          "unreachable": {
+            "emits_declared_document": false,
+            "violations": []
+          }
+        }
+      }
+    }
+  },
+  "failure_trace": {
+    "id": "name-frame-missed-nightly",
+    "observation": "development/d1.py nightly emits the declared document but name search omits it",
+    "prior_frame": "entrypoint name contains export/csv/download",
+    "failed_assumption": "all relevant routes expose feature vocabulary in their names",
+    "alternative_frames": [
+      "names plus callers",
+      "reverse calls from an external-output primitive",
+      "all entrypoints"
+    ],
+    "selected_rule": {
+      "strategy": "effect",
+      "selected_from": "development only",
+      "plan_ref": "sha256:db619a40050ae0d6f888c5cc258cc5dc7594e60643513bee879703949cec8c05",
+      "status": "scoped_candidate_not_production_authorization",
+      "scope": "document-output investigation on module-level direct-call Python fixtures; candidates require semantic review",
+      "unresolved_rule": "unresolved call paths prevent automatic investigation closure; do not count uncertainty as route discovery",
+      "retune_on_application": false
+    },
+    "lineage": {
+      "source": "development/d1.py",
+      "outcome_file": "expansion-results.json"
+    },
+    "known_limits": [
+      "dynamic calls",
+      "unregistered output primitives",
+      "no dataflow sensitivity",
+      "entrypoint inventory is bounded"
+    ],
+    "rollback_condition": "unresolved routes or unacceptable extra review: suspend automatic closure, inspect all relevant entries or collect a different observation",
+    "automatic_production_rule_update": false
+  },
+  "applied_rule": [
+    {
+      "fixture": "discovery_fixtures/application/t1.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "customer_digest",
+        "export_csv"
+      ],
+      "unresolved_entries": [],
+      "next_action": "review_candidate_scope",
+      "automatic_inventory_closure": false
+    },
+    {
+      "fixture": "discovery_fixtures/application/t2.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "csv_view",
+        "scheduled_dispatch"
+      ],
+      "unresolved_entries": [],
+      "next_action": "review_candidate_scope",
+      "automatic_inventory_closure": false
+    },
+    {
+      "fixture": "discovery_fixtures/application/t3.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "download_one",
+        "public_sample",
+        "weekly_package"
+      ],
+      "unresolved_entries": [],
+      "next_action": "review_candidate_scope",
+      "automatic_inventory_closure": false
+    },
+    {
+      "fixture": "discovery_fixtures/limits/c1.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "export_csv"
+      ],
+      "unresolved_entries": [
+        "scheduled_hook"
+      ],
+      "next_action": "investigation_required",
+      "automatic_inventory_closure": false
+    },
+    {
+      "fixture": "discovery_fixtures/limits/c2.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "download_one"
+      ],
+      "unresolved_entries": [
+        "legacy_writer"
+      ],
+      "next_action": "investigation_required",
+      "automatic_inventory_closure": false
+    },
+    {
+      "fixture": "discovery_fixtures/limits/c3.py",
+      "strategy": "effect",
+      "candidate_entries": [
+        "export_csv",
+        "unreachable"
+      ],
+      "unresolved_entries": [
+        "indirect_job"
+      ],
+      "next_action": "investigation_required",
+      "automatic_inventory_closure": false
+    }
+  ],
+  "non_claims": [
+    "not independent or blinded holdout evidence",
+    "not a universal static analyzer",
+    "not autonomous semantic rule invention",
+    "no measured savings in time, tokens or money",
+    "no proof of complete real-world route discovery"
+  ]
+}

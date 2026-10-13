@@ -1,0 +1,72 @@
+{
+  "schema": "runtime-boundary-demonstration/v1",
+  "initial_activation": "succeeded",
+  "cross_tenant_before": false,
+  "unverified_candidate_verdict": "HOLD",
+  "cross_tenant_after_candidate_observation": false,
+  "active_preserved": true,
+  "candidate_after_revalidation": "DENY",
+  "revalidation_did_not_publish": true,
+  "new_activation": "succeeded",
+  "active_matches_admitted_candidate": true,
+  "runtime_mismatch_call_allowed": false,
+  "runtime_mismatch_reasons": [
+    "runtime_artifact_mismatch"
+  ],
+  "matching_reobservation_call_allowed": true,
+  "release_generation": 2,
+  "runtime_history": [
+    {
+      "epoch": 1,
+      "snapshot_ref": null,
+      "release_generation": 0,
+      "observed": true,
+      "environment": "staging",
+      "tenants": [
+        "tenant-a"
+      ]
+    },
+    {
+      "epoch": 2,
+      "snapshot_ref": "sha256:24224b5f61393adac15286686fd7b03bde8ee0df116272c8e970246d7c3a049a",
+      "release_generation": 1,
+      "observed": true,
+      "environment": "staging",
+      "tenants": [
+        "tenant-a"
+      ]
+    },
+    {
+      "epoch": 3,
+      "snapshot_ref": "sha256:4a31e192b402b6147b09c3a79109ac863c252a3dfec4331e823f90ebc858a4db",
+      "release_generation": 2,
+      "observed": true,
+      "environment": "staging",
+      "tenants": [
+        "tenant-a"
+      ]
+    },
+    {
+      "epoch": 4,
+      "snapshot_ref": "sha256:4ae60389dbc002dc81439dc6299636e3fc9fb16e5ff77ec5592721e602226e9d",
+      "release_generation": 2,
+      "observed": true,
+      "environment": "staging",
+      "tenants": [
+        "tenant-a"
+      ]
+    },
+    {
+      "epoch": 5,
+      "snapshot_ref": "sha256:4a31e192b402b6147b09c3a79109ac863c252a3dfec4331e823f90ebc858a4db",
+      "release_generation": 2,
+      "observed": true,
+      "environment": "staging",
+      "tenants": [
+        "tenant-a"
+      ]
+    }
+  ],
+  "remote_runtime_observed": false,
+  "scope": "trusted single-process teaching gateway; no remote recovery guarantee"
+}

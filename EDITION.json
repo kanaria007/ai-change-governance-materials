@@ -1,0 +1,32 @@
+{
+  "schema": "book-material-edition/v1",
+  "book_title": "AI駆動開発の変更統治",
+  "book_edition": "第1版",
+  "book_version": "1.0.0",
+  "materials_id": "ai-change-governance-materials-1.0.0",
+  "materials_version": "1.0.0",
+  "license": "MIT",
+  "license_copyright": "Copyright (c) 2026 kanaria007",
+  "verified_python": "3.13.5",
+  "verified_os": "Linux",
+  "actual_ai_calls": 0,
+  "actual_remote_deployments": 0,
+  "github_workflow_executed_at_packaging": false,
+  "tag_expected": "v1.0.0",
+  "book_titles": {
+    "en": "Governing Change in AI-Driven Development",
+    "ja": "AI駆動開発の変更統治"
+  },
+  "supported_book_languages": [
+    "en",
+    "ja"
+  ],
+  "materials_scope": "Language-neutral code, bilingual documentation. Book chapters and figures excluded.",
+  "book_link_management": {
+    "file": "BOOK_LINKS.md",
+    "source": "repository default branch",
+    "included_in_materials_manifest": false,
+    "tag_and_archive_copies": "fixed snapshots; not live navigation"
+  },
+  "repository_url": "https://github.com/kanaria007/ai-change-governance-materials"
+}

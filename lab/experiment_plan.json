@@ -1,0 +1,55 @@
+{
+  "schema": "discovery-experiment-plan/v1",
+  "purpose": "bounded strategy selection and transfer on synthetic, same-author sources",
+  "strategies": [
+    "name",
+    "name_callers",
+    "effect",
+    "union",
+    "all_entries"
+  ],
+  "keywords": [
+    "export",
+    "csv",
+    "download"
+  ],
+  "sinks": [
+    "emit_document"
+  ],
+  "development": "3 files / 12 entrypoints; select strategy here only",
+  "application": "3 different files / 12 entrypoints; no selection or retuning here",
+  "limits": "3 files / 12 entrypoints; deliberately unsupported forms; report separately",
+  "selection_rule": [
+    "minimize development false negatives",
+    "then minimize development false positives",
+    "then minimize development edges examined",
+    "then strategy name"
+  ],
+  "adoption_scope": "document-output investigation on module-level direct-call Python fixtures; candidates require semantic review",
+  "unresolved_rule": "unresolved call paths prevent automatic investigation closure; do not count uncertainty as route discovery",
+  "metrics": [
+    "tp",
+    "fp",
+    "fn",
+    "tn",
+    "candidate_count",
+    "unresolved_count",
+    "source_bytes",
+    "ast_nodes",
+    "edges_examined"
+  ],
+  "cost_note": "candidate_count and edges_examined are workload proxies, not wall-clock, token, money or developer-effort measurements",
+  "truth": "execute every decorated entrypoint under 3 fixed actor/tenant inputs with recording sinks; labels only these inputs",
+  "independence_note": "same author constructed rules, source, input cases and oracle; no independent or blinded holdout claim",
+  "fixtures": {
+    "application/t1.py": "sha256:d4178c7ea68f84de93dd0352936d768b07fd632c161f2ce42b5e7d0a3b1e8e54",
+    "application/t2.py": "sha256:ebe87b4da8342e583fba43ae47693e5e28f565a9d6f251b599f093643e2f2bff",
+    "application/t3.py": "sha256:b83b0cf8f3bdb755bcfc899fa80bf9b371af649e1024b2cd3c50294958dbe8a4",
+    "development/d1.py": "sha256:c5b05257dbee85157e19e32aaf7fdb3190d055ef43b6090bb7698179ee3a3a86",
+    "development/d2.py": "sha256:8d4b9ca346993e7208b0954bfc60c2f94638597429ad2b6679a4aea07899711e",
+    "development/d3.py": "sha256:71a434bcd63918ae6b4fe5cd1596a8e45c1d4cd32a65aed2191dfff2eea4bc64",
+    "limits/c1.py": "sha256:28d05179429916124fb1faf5e18af6db1ded5a2024ddcc6237b3270525e3be51",
+    "limits/c2.py": "sha256:2ad6a198e035b22e286f442fb6307d82c6ba6626d546bef5257b29724b7874f1",
+    "limits/c3.py": "sha256:72389b6a76f3da82df101025aaad6986348ccee8b9db67befe1a391f8191caee"
+  }
+}
